@@ -1,6 +1,7 @@
 package com.springbank.bankacc.query.api;
 
 import com.springbank.bankacc.core.configuration.AxonConfig;
+import com.springbank.bankacc.query.api.configuration.ApplicationSecurity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -10,9 +11,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @SpringBootApplication
 @EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EntityScan(basePackages = "com.springbank.bankacc.core.models")
-@Import(AxonConfig.class)
+@Import({ AxonConfig.class, ApplicationSecurity.class })
 public class BankAccQueryApplication {
 
 	public static void main(String[] args) {

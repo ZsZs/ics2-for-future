@@ -1,5 +1,6 @@
 package com.springbank.bankacc.cmd.api;
 
+import com.springbank.bankacc.cmd.api.configuration.ApplicationSecurity;
 import com.springbank.bankacc.core.configuration.AxonConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,9 +12,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @SpringBootApplication
 @EnableResourceServer
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@Import(AxonConfig.class)
+@Import({ AxonConfig.class, ApplicationSecurity.class })
 public class BankAccCommandApplication {
 
 	public static void main(String[] args) {
